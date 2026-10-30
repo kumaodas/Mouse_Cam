@@ -58,17 +58,17 @@ Se aplica **Clean Architecture** para desacoplar la lógica matemática y de neg
 gesture_mouse/
 ├── src/
 │   └── gesture_mouse/
-│       ├── domain/                 # 🧠 Capa de Dominio (Lógica Pura)
+│       ├── domain/                 # Capa de Dominio (Lógica Pura)
 │       │   ├── models.py           # Entidades: Punto, Mano, Gesto
 │       │   ├── value_objects.py    # Coordenada, Distancia, Velocidad
 │       │   └── interfaces.py       # Contratos y Protocolos (Interfaces)
 │       │
-│       ├── application/            # 🚀 Capa de Aplicación (Casos de Uso)
+│       ├── application/            # Capa de Aplicación (Casos de Uso)
 │       │   ├── use_cases.py        # MoverCursor, DetectarClic, EjecutarScroll
 │       │   └── services/
 │       │       └── gesture_service.py # Orquestación y estado de gestos
 │       │
-│       ├── infrastructure/         # 🔧 Capa de Infraestructura (Detalles Técnicos)
+│       ├── infrastructure/         # Capa de Infraestructura (Detalles Técnicos)
 │       │   ├── vision/
 │       │   │   ├── hand_tracker.py # Adaptador de MediaPipe
 │       │   │   └── smoother.py     # Implementaciones: Moving Average, One Euro Filter
@@ -77,7 +77,7 @@ gesture_mouse/
 │       │   └── config/
 │       │       └── settings.py     # Configuración vía Pydantic
 │       │
-│       └── presentation/           # 🖥️ Capa de Presentación (Entrypoint)
+│       └── presentation/           # Capa de Presentación (Entrypoint)
 │           └── main.py             # Loop principal, contenedor DI y renderizado
 ├── tests/
 │   ├── unit/                       # Pruebas de dominio y aplicación
