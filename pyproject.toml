@@ -1,0 +1,61 @@
+[build-system]
+requires = ["setuptools>=69.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "gesture-mouse"
+version = "0.1.0"
+description = "Gesture Mouse: Control del cursor mediante visión artificial con MediaPipe y Filtro 1€"
+readme = "README.md"
+requires-python = ">=3.10"
+license = {file = "LICENSE"}
+authors = [
+    {name = "Gesture Mouse contributors"}
+]
+keywords = ["accessibility", "computer-vision", "gesture-control", "mediapipe", "mouse"]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Environment :: Win32 (MS Windows)",
+    "Intended Audience :: End Users/Desktop",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: Microsoft :: Windows :: Windows 10",
+    "Operating System :: Microsoft :: Windows :: Windows 11",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Topic :: Scientific/Engineering :: Image Processing",
+]
+dependencies = [
+    "opencv-python>=4.8.0",
+    "mediapipe>=0.10.0",
+    "numpy>=1.24.0",
+    "Pillow>=10.0.0",
+    "pystray>=0.19.5",
+    "pynput>=1.7.6",
+    "pydantic>=2.0.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8.0.0",
+]
+build = [
+    "build>=1.2.0",
+    "pyinstaller>=6.0.0",
+    "twine>=5.0.0",
+]
+
+[project.scripts]
+gesture-mouse = "gesture_mouse.presentation.main:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+gesture_mouse = ["models/*.task"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src"]
